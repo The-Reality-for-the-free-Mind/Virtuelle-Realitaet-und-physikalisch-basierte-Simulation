@@ -1,0 +1,72 @@
+#X3D V3.0 utf8
+
+PROFILE Full
+
+Group {
+	children [
+#		NavigationInfo {
+#			headlight FALSE
+#			type [ "EXAMINE" "ANY"  ] 
+			 # transitionType [ "ANIMATE"  ] 
+#		},
+		Background {skyColor 1.0 1.0 1.0},
+		
+		DirectionalLight { 
+			on TRUE 
+			intensity 0.5
+			ambientIntensity 0.3
+			color 1 1 1 
+			direction 0 0 -1
+		},
+
+		DirectionalLight { 
+			on TRUE 
+			intensity 0.3
+			ambientIntensity 0.3
+			color 1 1 1 
+			direction 0 -1 0
+		},
+		
+		DEF TREECOLOR
+			Appearance { material Material { diffuseColor 0 1 0.2 }},
+
+		DEF BTCOLOR
+			Appearance { material Material { diffuseColor 0.6 0.2 0 }},
+			
+		Shape {
+			appearance USE BTCOLOR
+			geometry Cylinder {
+				height 3
+				radius 0.65
+			}
+		},
+		
+		Transform {
+			translation 0 3 0
+			children Shape {
+				appearance USE TREECOLOR
+				geometry Cone {
+					bottomRadius 2
+					height		 5
+				}					
+			}
+		},
+
+		Transform {
+			scale 0.01 0.01 0.01
+			rotation 1 1 0 0
+			children [
+				Inline {url "GiftBox2.wrl"}
+			]
+		}
+		
+#		Transform {
+#			scale 0.5
+#			translation 0 3 -2			
+#			children [
+#				Inline {url "GiftBox2.wrl"}
+#			]
+#		}
+
+	]
+}

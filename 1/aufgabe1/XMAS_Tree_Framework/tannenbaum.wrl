@@ -1,0 +1,34 @@
+#VRML V2.0 utf8
+Group {
+	children [
+	DEF TREECOLOR
+		Appearance { material Material { diffuseColor 0 1 0.2 }},
+
+	DEF BTCOLOR
+		Appearance { material Material { diffuseColor 0.6 0.2 0 }},
+		
+	Shape {
+		appearance USE BTCOLOR
+		geometry Cylinder {
+			height 3
+			radius 0.75
+		}
+	},
+	
+	Transform {
+		children Shape {
+			appearance USE TREECOLOR
+			geometry Cone {
+				bottomRadius 2
+				height		 5
+			}
+				
+		}
+		translation 0 3 0
+
+		
+	},
+	
+	
+	]
+}
